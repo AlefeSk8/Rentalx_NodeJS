@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/server.ts",
-    "typeorm": "ts-node-dev ./node_modules/typeorm/cli"
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli",
+    "migration-create": "typeorm-ts-node-commonjs migration:create ./src/database/migrations/name",
+    "migration-run": "typeorm-ts-node-commonjs migration:run -d ./src/database/data-source.ts",
+    "migration-revert": "typeorm-ts-node-commonjs migration:revert -d ./src/database/data-source.ts"
   },
   "keywords": [],
   "author": "",
