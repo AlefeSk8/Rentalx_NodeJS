@@ -72,6 +72,42 @@
                     }
                 }
             }
+        },
+        "/specifications": {
+            "post": {
+                "tags": ["Specification"],
+                "summary": "Create a specification",
+                "description": "Create a new specification",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "name": "Specification name sample",
+                                    "description": "Specification description sample"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "created"
+                    },
+                    "500": {
+                        "description": "Category already exists"
+                    }
+                }
+            }
         }
     }
 }
