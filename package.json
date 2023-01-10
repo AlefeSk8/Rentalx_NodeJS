@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/server.ts",
+    "dev": "ts-node-dev --inspect --transpile-only --poll --ignore-watch node_modules --respawn src/server.ts",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli",
     "migration-create": "typeorm-ts-node-commonjs migration:create ./src/database/migrations/name",
     "migration-run": "typeorm-ts-node-commonjs migration:run -d ./src/database/data-source.ts",

@@ -37,10 +37,10 @@
                 },
                 "responses": {
                     "201": {
-                        "description": "created"
+                        "description": "Created"
                     },
                     "500": {
-                        "description": "Category already exists"
+                        "description": "Category already exists!"
                     }
                 }
             },
@@ -73,6 +73,33 @@
                 }
             }
         },
+        "/categories/import": {
+            "post": {
+                "tags": ["Category"],
+                "summary": "Upload a new category",
+                "description": "Upload a new category",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    }
+                }
+            }
+        },
         "/specifications": {
             "post": {
                 "tags": ["Specification"],
@@ -82,15 +109,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "name": {
-                                        "type": "string"
-                                    },
-                                    "description": {
-                                        "type": "string"
-                                    }
-                                },
+                                "$ref": "#/definitions/Specification",
                                 "example": {
                                     "name": "Specification name sample",
                                     "description": "Specification description sample"
@@ -101,11 +120,24 @@
                 },
                 "responses": {
                     "201": {
-                        "description": "created"
+                        "description": "Created"
                     },
                     "500": {
-                        "description": "Category already exists"
+                        "description": "Specification already exists!"
                     }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Specification": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
                 }
             }
         }
