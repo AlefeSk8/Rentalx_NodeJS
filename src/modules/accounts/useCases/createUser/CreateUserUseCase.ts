@@ -1,14 +1,14 @@
 import { inject, injectable } from "tsyringe";
 import { IUsersRepository } from "../../repositories/IUsersRepository";
 import { hash } from "bcryptjs";
-import { AppError } from "../../../../errors/AppError";
+import { AppError } from "../../../../shared/errors/AppError";
 
 interface IRequest {
     name: string;
     password: string;
     email: string;
     driver_license: string;
-    avatar: string;
+    avatar?: string;
 };
 
 @injectable()

@@ -1,9 +1,10 @@
 //DTO = Data Transfer Object
 interface ICreateUserDTO {
-    name?: string;
-    password?: string;
-    email?: string;
-    driver_license?: string;
+    name: string;
+    password: string;
+    email: string;
+    driver_license: string;
+    id?: string;
     avatar?: string;
 };
 
