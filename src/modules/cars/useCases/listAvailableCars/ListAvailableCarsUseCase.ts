@@ -3,9 +3,9 @@ import { ICarsRepository } from "@modules/cars/repositories/ICarsRepository";
 import { inject, injectable } from "tsyringe";
 
 interface IRequest {
-    category_id?: string;
     brand?: string;
     name?: string;
+    category_id?: string;
 };
 @injectable()
 class ListAvailableCarsUseCase {
@@ -14,11 +14,11 @@ class ListAvailableCarsUseCase {
         private carsRepository: ICarsRepository
     ) {};
 
-    async execute({ category_id, brand, name }: IRequest): Promise<Car[]> {
+    async execute({ brand, name, category_id }: IRequest): Promise<Car[]> {
         return await this.carsRepository.findAvailable(
-            category_id, 
             brand, 
-            name
+            name,
+            category_id, 
         );
     };
 }

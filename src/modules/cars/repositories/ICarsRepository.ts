@@ -7,8 +7,8 @@ interface ICarsRepository {
     findByLicensePlate(license_plate: string): Promise<Car>;
     findAvailable(
         brand?: string, 
+        name?: string,
         category_id?: string, 
-        name?: string
     ): Promise<Car[]>;
 };
 
