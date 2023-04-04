@@ -6,10 +6,11 @@
   "scripts": {
     "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --poll --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
     "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli",
-    "migration-create": "typeorm-ts-node-commonjs migration:create @shared/typeorm/migrations/name",
-    "migration-run": "typeorm-ts-node-commonjs migration:run -d @shared/typeorm/data-source.ts",
-    "migration-revert": "typeorm-ts-node-commonjs migration:revert -d @shared/typeorm/data-source.ts",
-    "test": "jest"
+    "migration-create": "typeorm-ts-node-commonjs migration:create src/shared/infra/typeorm/migrations/name",
+    "migration-run": "typeorm-ts-node-commonjs migration:run -d src/shared/infra/typeorm/data-source.ts",
+    "migration-revert": "typeorm-ts-node-commonjs migration:revert -d src/shared/infra/typeorm/data-source.ts",
+    "test": "jest",
+    "seed:admin": "ts-node-dev src/shared/infra/typeorm/seed/admin.ts"
   },
   "keywords": [],
   "author": "",
