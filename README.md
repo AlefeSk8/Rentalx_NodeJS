@@ -24,7 +24,7 @@
 ✅ Deve ser possível listar todos os carros disponíveis pela marca.
 
 **RN**
-Não é necessário estar logado para listar todos os carros.
+✅ Não é necessário estar logado para listar todos os carros.
 
 
 # Cadastro de Especificação no carro
