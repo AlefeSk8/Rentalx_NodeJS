@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --poll --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
     "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli",
-    "migration-create": "typeorm-ts-node-commonjs migration:create src/shared/infra/typeorm/migrations/-n",
+    "migration-create": "typeorm-ts-node-commonjs migration:create src/shared/infra/typeorm/migrations/name",
     "migration-run": "typeorm-ts-node-commonjs migration:run -d src/shared/infra/typeorm/data-source.ts",
     "migration-revert": "typeorm-ts-node-commonjs migration:revert -d src/shared/infra/typeorm/data-source.ts",
     "test": "jest",
@@ -19,6 +19,7 @@
     "@types/bcryptjs": "^2.4.2",
     "bcryptjs": "^2.4.3",
     "csv-parse": "^5.3.3",
+    "dayjs": "^1.11.7",
     "express": "^4.18.2",
     "express-async-errors": "^3.1.1",
     "jsonwebtoken": "^9.0.0",
@@ -27,7 +28,7 @@
     "reflect-metadata": "^0.1.13",
     "swagger-ui-express": "^4.6.0",
     "tsyringe": "^4.7.0",
-    "typeorm": "^0.3.11",
+    "typeorm": "^0.3.13",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
