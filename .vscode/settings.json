@@ -3,5 +3,6 @@
         "dtos",
         "tsyringe",
         "typeorm"
-    ]
+    ],
+    "cSpell.language": "en,pt-BR"
 }
