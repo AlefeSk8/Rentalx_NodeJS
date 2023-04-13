@@ -4,6 +4,7 @@ import { UsersRepositoryInMemory } from "../../repositories/in-memory/UsersRepos
 import { CreateUserUseCase } from "../createUser/CreateUserUseCase";
 import { AuthenticateUserUseCase } from "./AuthenticateUserUseCase";
 import { DayjsDateProvider } from "@shared/container/providers/DateProvider/implementations/DayjsDateProvider";
+import { UsersTokensRepositoryInMemory } from "@modules/accounts/repositories/in-memory/UsersTokensRepositoryInMemory";
 
 let usersRepositoryInMemory: UsersRepositoryInMemory;
 let authenticateUserUseCase: AuthenticateUserUseCase;
@@ -66,6 +67,24 @@ describe("Authenticate User", () => {
             authenticateUserUseCase.execute({
                 email: "incorrectemail@test.com",
                 password: user.password,
+            })
+        ).rejects.toEqual(new AppError("Email or password incorrect!", 401));
+    });
+
+    it("Should not be able to authenticate an user with incorrect password", async () => {
+        const user: ICreateUserDTO = {
+            name: "Test",
+            password: "5616",
+            email: "test@test.com",
+            driver_license: "5055603",
+            avatar: "URL"
+        };
+        await createUserUseCase.execute(user);
+
+        await expect(
+            authenticateUserUseCase.execute({
+                email: user.email,
+                password: "incorrect password",
             })
         ).rejects.toEqual(new AppError("Email or password incorrect!", 401));
     });

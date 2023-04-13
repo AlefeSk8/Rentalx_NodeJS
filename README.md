@@ -82,7 +82,19 @@ Deve ser possível cadastrar um aluguel.
 # Listagem de alugueis para o usuário
 
 **RF**
-Deve ser possível listar todos os alugueis do usuário.
+✅ Deve ser possível listar todos os alugueis do usuário.
 
 **RN**
 ✅ O usuário deve estar logado.
+
+
+# Recuperar senha.
+
+**RF**
+- Deve ser possível o usuário recuperar a senha informando o email.
+- O usuário deve receber um email com o  passo a passo  para a recuperação da senha
+- O usuário deve conseguir inserir uma nova senha
+
+**RN**
+- O usuário precisa informar uma nova senha
+- o link enviado para a recuperação deve expirar em 3 horas
