@@ -36,13 +36,13 @@ class CreateRentalUseCase {
         const carUnavailable = await this.rentalsRepository.findOpenRentalByCar(car_id);
 
         if(carUnavailable) {
-            throw new AppError("Car is unavailable");
+            throw new AppError("Car is unavailable", 401);
         };
         
         const userOpenRental = await this.rentalsRepository.findOpenRentalByUser(user_id);
 
         if(userOpenRental) {
-            throw new AppError("Already have a rental in progress for this user!")
+            throw new AppError("Already have a rental in progress for this user!", 401)
         };
 
         const dateNow = this.dateProvider.dateNow();
@@ -52,7 +52,7 @@ class CreateRentalUseCase {
         );
 
         if(compare < minimumHours) {
-            throw new AppError("Invalid return time!");
+            throw new AppError("Invalid return time!", 401);
         };
 
         const rental = await this.rentalsRepository.create({
@@ -64,7 +64,7 @@ class CreateRentalUseCase {
         await this.carsRepository.updateAvailable(
             car_id,
             false,
-        )
+        );
 
         return rental;
     };

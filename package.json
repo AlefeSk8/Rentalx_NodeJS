@@ -5,11 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --poll --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
-    "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli",
+    "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli -d src/shared/infra/typeorm/data-source.ts",
     "migration-create": "typeorm-ts-node-commonjs migration:create src/shared/infra/typeorm/migrations/name",
-    "migration-run": "typeorm-ts-node-commonjs migration:run -d src/shared/infra/typeorm/data-source.ts",
-    "migration-revert": "typeorm-ts-node-commonjs migration:revert -d src/shared/infra/typeorm/data-source.ts",
-    "test": "set NODE_ENV=test&&jest --detectOpenHandles",
+    "test": "set NODE_ENV=test&&jest --runInBand --detectOpenHandles",
     "seed:admin": "ts-node-dev src/shared/infra/typeorm/seed/admin.ts"
   },
   "keywords": [],

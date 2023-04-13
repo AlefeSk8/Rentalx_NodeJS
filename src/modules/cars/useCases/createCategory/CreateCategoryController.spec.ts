@@ -43,7 +43,9 @@ describe("Create category controller", () => {
             Authorization: `Bearer ${token}`,
         });
 
-        expect(response.status).toBe(201);
+        const { status } = response;
+
+        expect(status).toBe(201);
     });
     
     it("Should not be able to create a new category wih same name", async () => {
@@ -61,6 +63,6 @@ describe("Create category controller", () => {
             Authorization: `Bearer ${token}`,
         });
 
-        expect(response.status).toBe(400);
+        expect(response.status).toBe(401);
     });
 });

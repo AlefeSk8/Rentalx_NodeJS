@@ -10,7 +10,7 @@ const AppDataSource = new DataSource({
   database: "rentx",
   synchronize: false,
   logging: false,
-  entities: ["./src/modules/**/entities/*.ts"],
+  entities: ["./src/modules/**/infra/typeorm/entities/*.ts"],
   migrations: ["./src/shared/infra/typeorm/migrations/*.ts"],
   subscribers: [],
 })

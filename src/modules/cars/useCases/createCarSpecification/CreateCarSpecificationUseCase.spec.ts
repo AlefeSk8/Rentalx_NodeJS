@@ -20,7 +20,7 @@ describe("Create car specification", () => {
             const specifications_id = ["4321"]
             
             await createCarSpecificationUseCase.execute({car_id, specifications_id});
-        }).rejects.toBeInstanceOf(AppError);
+        }).rejects.toEqual(new AppError("Car does't exists!", 401));
     });
     
     it("Should be able to add a new specification to the car", async () => {
