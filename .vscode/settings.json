@@ -1,6 +1,11 @@
 {
     "cSpell.words": [
+        "dayjs",
         "dtos",
+        "openapi",
+        "postgres",
+        "rentalx",
+        "rentx",
         "tsyringe",
         "typeorm"
     ],
