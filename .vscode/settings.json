@@ -11,5 +11,6 @@
         "tsyringe",
         "typeorm"
     ],
-    "cSpell.language": "en,pt-BR"
+    "cSpell.language": "en,pt-BR",
+    "git.ignoreLimitWarning": true
 }
